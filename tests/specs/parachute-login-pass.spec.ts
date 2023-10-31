@@ -4,7 +4,7 @@ import * as parachuteLoginpage from '@pages/Parachute/parachute-login-page';
 
 test.describe.configure({ mode: 'parallel' });
 
-test.describe('parachute lohin success', () => {
+test.describe('parachute login success', () => {
     test('Parchute tests - Successful login will display dashboard', async () => {
       await parachuteLoginpage.navigateToParachuteLoginPage();
       await parachuteLoginpage.parachutelogInSuccessfully();
