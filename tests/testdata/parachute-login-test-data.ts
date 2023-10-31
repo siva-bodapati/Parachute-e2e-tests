@@ -17,3 +17,8 @@ export const parachueParentPasswordRequiredCredentials = {
     username: 'bodapatisskumar+rdx22@gmail.com',
     password: '',
 };
+
+export const parachueNannyLoginCredentials = {
+    username: 'bodapatisskumar+nfeed2@gmail.com',
+    password: 'S!va1920',
+};

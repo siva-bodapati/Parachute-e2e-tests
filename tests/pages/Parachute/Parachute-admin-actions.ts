@@ -11,6 +11,8 @@ const dashboardText = `//h1[contains(text(), 'Dashboard')]`
 const nannyoption = `//p[contains(text(), 'Nanny')]`
 const getEmail = `(//td[@class='text-center'])[3]`
 const changeStatus = `(//td[@class='text-center']//span)[2]`
+const VerifyText = `(//*[contains(text(), 'Verified')])[1]`
+const adminLogout = `//*[@class='fas fa-sign-out-alt']`
 
 
 
@@ -39,5 +41,10 @@ export async function verifynanny(){
     const actualEmail = await parachuteNannysignupSuccessCredentials.username
     if(expectEmail == actualEmail){
         await click(changeStatus)
+        await expectElementToBeVisible(VerifyText);
     }
+}
+
+export async function logoutAdmin(){
+    await click(adminLogout)
 }

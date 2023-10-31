@@ -34,3 +34,8 @@ function generateRandomGmailUsername(baseUsername: string, startNumber: number, 
     docyear: '2003'
 
   }
+
+  export const parachueNannyLoginCredentials = {
+    username: 'bodapatisskumar+rdx22@gmail.com',
+    password: 'S!va1920',
+};
