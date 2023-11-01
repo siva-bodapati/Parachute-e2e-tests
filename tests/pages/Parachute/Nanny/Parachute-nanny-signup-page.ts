@@ -1,4 +1,4 @@
-import { click, clickAndNavigate, fill, gotoURL, uploadFiles } from 'vasu-playwright-utils';
+import { click, clickAndNavigate, fill, gotoURL, hover, uploadFiles } from 'vasu-playwright-utils';
 import { parachuteNannysignupSuccessCredentials, fillNannyAccountDetails } from '@testdata/parachute/Nanny/parachute-nanny-signup-test-data';
 import { expectElementToBeVisible } from 'vasu-playwright-utils';
 import {  getLocatorByRole } from 'vasu-playwright-utils';
@@ -68,6 +68,8 @@ const publishProfile = `//*[contains(text(),'Publish profile')]`
 const awsomeText = `//*[contains(text(),' Awesome! ')]`
 const viewProfileButton = `//*[contains(text(),'View profile')]`
 const pendingStatus = `//*[contains(text(),' Pending verification')]`
+const profiledropdown = `//*[@id='imgappend']`
+const logout = `(//*[contains(text(), 'Log out')])[2]`
 
 const continuewithemail = () => getLocatorByRole('button', { name: 'Continue with email' });
 // const next = () => getLocatorByRole('button', { name: ' Next ' });
@@ -229,4 +231,9 @@ export async function viewProfilepage(){
 
 export async function nannyProfileStatus(){
     await expectElementToBeVisible(pendingStatus)
+}
+
+export async function logoutNannyprofile(){
+    await hover(profiledropdown)
+    await click(logout)
 }
