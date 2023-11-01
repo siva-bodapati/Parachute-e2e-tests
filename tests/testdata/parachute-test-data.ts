@@ -29,10 +29,18 @@ export const ParentSignupCredentials = {
 
 export const fillParentAccountDetails = {
   firstName: baseUsername,
-  lastName: `123`,
+  lastName: '123',
   password: 'Password@123',
   confirmPassword: 'Password@123',
   countrycode: ' China(+86)',
   phonenumber: '7207195787',
   displayname: randomUsername,
+}
+
+
+export const fillJobDetails = {
+  jobTitle: 'Nanny Required00100',
+  description: 'Nanny needs to be experienced',
+  budget: '10009$HK',
+
 }

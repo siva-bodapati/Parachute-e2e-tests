@@ -1,5 +1,5 @@
 import { test } from '@pagesetup';
-import * as LoginPage from '../../pages/Parachute/parachute-login-page';
+import * as LoginPage from '../../pages/Parachute/parachute-login-Fullpage';
 import * as Dashboard from '../../pages/Parachute/parachute-dashboard-page';
 
 /*
