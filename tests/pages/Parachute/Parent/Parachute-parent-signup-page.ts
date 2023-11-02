@@ -1,4 +1,4 @@
-import { click, clickAndNavigate, fill, gotoURL, uploadFiles } from 'vasu-playwright-utils';
+import { click, clickAndNavigate, fill, gotoURL } from 'vasu-playwright-utils';
 import { ParentSignupCredentials, fillParentAccountDetails } from '@testdata/parachute-test-data';
 import { expectElementToBeVisible } from 'vasu-playwright-utils';
 import { getLocatorByRole } from 'vasu-playwright-utils';
@@ -19,7 +19,7 @@ const reEnterPassword = `//*[@formcontrolname='confirm_password']`
 const registerAsParent = `//*[contains(text(),'Hire a confinement nanny')]`
 const clickCountryCode = `//*[@formcontrolname = 'country_code']`
 const enterphonenumber = `//*[@formcontrolname = 'phone_number']`
-const languagepreference = `//*[@for = 'English']`
+//const languagepreference = `//*[@for = 'English']`
 const acceptterms = `//*[@for='same-address']`
 // const selectCountryCode = `//*[@class = 'dropdown-item'][contains(text(), ' China(+86)')]`
 const clickSubmit = () => getLocatorByRole('button', { name: 'Submit' });
@@ -59,9 +59,9 @@ export async function fillparentsignupaccountdetails() {
     await click(registerAsParent)
     await click(acceptterms)
     await click(clickCountryCode)
-    // await selectByValue(clickCountryCode, 'China(+86)')
+    //await selectByValue(clickCountryCode, 'China(+86)')
     await fill(enterphonenumber, fillParentAccountDetails.phonenumber)
-    await click(languagepreference)
+    //await click(languagepreference)
     await clickAndNavigate(clickSubmit())
 
 }
