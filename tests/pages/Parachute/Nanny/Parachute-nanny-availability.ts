@@ -1,5 +1,5 @@
 import {  click, clickAndNavigate, fill } from 'vasu-playwright-utils';
-import { parachueNannyLoginCredentials } from '@testdata/parachute/Nanny/parachute-nanny-signup-test-data';
+import { parachueNannyLoginCredentials } from '@testdata/parachute/Nanny/parachute-nanny-test-data';
 import { getLocator, getLocatorByPlaceholder, getLocatorByRole } from 'vasu-playwright-utils';
 import { expectElementToBeVisible } from 'vasu-playwright-utils';
 

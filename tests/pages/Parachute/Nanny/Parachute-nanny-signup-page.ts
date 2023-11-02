@@ -1,5 +1,5 @@
-import { click, clickAndNavigate, fill, gotoURL, hover, uploadFiles } from 'vasu-playwright-utils';
-import { parachuteNannysignupSuccessCredentials, fillNannyAccountDetails } from '@testdata/parachute/Nanny/parachute-nanny-signup-test-data';
+import { click, clickAndNavigate, fill, gotoURL, hover, scrollLocatorIntoView, uploadFiles } from 'vasu-playwright-utils';
+import { parachuteNannysignupSuccessCredentials, fillNannyAccountDetails } from '@testdata/parachute/Nanny/parachute-nanny-test-data';
 import { expectElementToBeVisible } from 'vasu-playwright-utils';
 import {  getLocatorByRole } from 'vasu-playwright-utils';
 
@@ -17,7 +17,7 @@ const reEnterPassword = `//*[@formcontrolname='confirm_password']`
 const registerAsNanny = `//*[contains(text(),'Register as a confinement nanny')]`
 const acceptterms = `//*[@for='same-address']`
 const clickCountryCode = `//*[@formcontrolname = 'country_code']`
-// const selectCountryCode = `//*[@class = 'dropdown-item'][contains(text(), ' China(+86)')]`
+const selectCountryCode = `//*[@class = 'dropdown-item'][contains(text(), ' China(+86)')]`
 const clickSubmit = () => getLocatorByRole('button', { name: 'Submit' });
 const getVerified = `//*[contains(text(),'Get verified')]`
 const enterphonenumber =`//*[@formcontrolname = 'mobile']`
@@ -120,7 +120,9 @@ export async function fillnannysignupaccountdetails(){
     await clickAndNavigate(clickSubmit())
     await clickAndNavigate(getVerified)
     await click(clickCountryCode)
+    await scrollLocatorIntoView(selectCountryCode)
     // await selectByValue(clickCountryCode, 'China(+86)')
+    await click(selectCountryCode)
     await fill(enterphonenumber, fillNannyAccountDetails.phonenumber)
     await click(preferedLanguage)
     await click(foundationCertificate)
