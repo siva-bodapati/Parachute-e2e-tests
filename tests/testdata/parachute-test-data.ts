@@ -37,9 +37,22 @@ export const fillParentAccountDetails = {
   displayname: randomUsername,
 }
 
+//Generating random Text for JobTitle
+function generateRandomString(length: number) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    result += characters.charAt(randomIndex);
+  }
+  return result;
+}
+
+const baseJobTitle = 'Automation Job - ';
+const randomJobTitle = `${baseJobTitle}${generateRandomString(4)}`;
 
 export const fillJobDetails = {
-  jobTitle: 'Nanny Required00100',
+  jobTitle: randomJobTitle,
   description: 'Nanny needs to be experienced',
   budget: '10009$HK',
 

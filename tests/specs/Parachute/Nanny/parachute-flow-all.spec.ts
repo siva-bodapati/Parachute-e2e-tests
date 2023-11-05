@@ -4,6 +4,8 @@ import * as admin from '@pages/Parachute/Parachute-admin-actions'
 import * as NannyLogin from '@pages/Parachute/Nanny/parachute-nanny-login-page'
 import * as nannyAvailability from '@pages/Parachute/Nanny/Parachute-nanny-availability';
 import * as editProfile from '@pages/Parachute/Nanny/parachute-nanny-edit-profile'
+import * as nannyApplyJob from '@pages/Parachute/Nanny/parachute-nanny-apply-job'
+import * as postAJob from '@pages/Parachute/Parent/parachute-parent-Postjob'
 
 test.describe.configure({ mode: 'serial' });
 
@@ -34,7 +36,7 @@ test.describe('parachute flow all scenarios', () => {
         await nannySignup.awsomeTextIsDisplayed();
         await nannySignup.viewProfilepage();
         await nannySignup.nannyProfileStatus();
-        await nannySignup.logoutNannyprofile();
+        await nannySignup.logoutprofile();
         await admin.navigateToAdminLoginPage();
         await admin.parachuteAdminlogInSuccessfully()
         await admin.verifyDashboardisDisplayed();
@@ -91,6 +93,28 @@ test.describe('parachute flow all scenarios', () => {
         await editProfile.deletecertificates();
         
     });
+    test('Parchute tests - Nanny ApplyJob', async () => {
+        await nannySignup.navigateToParachuteLoginPage();
+        await nannySignup.acceptcookies();
+        await nannySignup.clicklogin(); 
+        await postAJob.ParentlogInSuccessfully();
+        await postAJob.verifyLoginWelcomMessage();
+        await postAJob.ClickOnPostAJob();
+        await postAJob.FillJobDetails();
+        await postAJob.CheckJobPostSuccess();
+        await nannySignup.logoutprofile();
+        await nannyAvailability.parachutelogInSuccessfully();
+        await nannyApplyJob.navigateToViewJobBoard();
+        await nannyApplyJob.verifyJobName();
+        await nannyApplyJob.clickApplyButtonInJobView();
+        await nannyApplyJob.clickapplyButtonInJobDetails();
+        await nannyApplyJob.verifyTermsOfUseText();
+        await nannyApplyJob.checkTermsCheckBox();
+        await nannyApplyJob.verifyApplyJobText();
+        await nannyApplyJob.verifySalaryRequirementtext();
+        await nannyApplyJob.fillApplyJobDetails();
+    });
+
 
 
 });

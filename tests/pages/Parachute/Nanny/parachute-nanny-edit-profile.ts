@@ -1,4 +1,4 @@
-import { MAX_TIMEOUT, clear, click, clickAndNavigate, fill, getAllLocators, getText, isElementAttached, isElementChecked, isElementVisible, uploadFiles, waitForElementToBeVisible } from 'vasu-playwright-utils';
+import { MAX_TIMEOUT, click, clickAndNavigate, fill, getText, isElementChecked, isElementVisible, uploadFiles, waitForElementToBeVisible } from 'vasu-playwright-utils';
 import { fillNannyAccountDetails, parachueNannyLoginCredentials, editNannyProfileDetails, deleteCertificateAccountCredentials } from '@testdata/parachute/Nanny/parachute-nanny-test-data';
 import { getLocator, getLocatorByPlaceholder, getLocatorByRole } from 'vasu-playwright-utils';
 import { expectElementToBeVisible } from 'vasu-playwright-utils';
@@ -44,7 +44,7 @@ const editpets = `//*[@for='petsSmall']`
 const edithelpers = `//*[@for='no3']`
 //This code works for update cared babies, experience update, cooking
 const editExperienceYear = `(//input[@class='form-control rounded-pill sm ng-pristine ng-valid ng-touched ng-untouched'])[1]`
-const editExperienceMonth = `(//input[@class='form-control rounded-pill sm ng-pristine ng-valid ng-touched ng-untouched'])[2]`
+// const editExperienceMonth = `(//input[@class='form-control rounded-pill sm ng-pristine ng-valid ng-touched ng-untouched'])[2]`
 const editExperienceInCarredBabies = `//*[@class='form-control rounded-pill sm ng-untouched ng-pristine ng-valid']`
 const editCaringtwins = `//*[@for='no2']`
 const experienceInCooking = `//*[@for='no1']`
@@ -66,7 +66,7 @@ const visibleGallery = `(//*[@data-fancybox='gallery2'])[1]`
 const visibleCameraIcon = `//*[@class='fa fa-camera']`
 const deleteShowCaseImage = `(//*[@class='pc pc-trash'])[1]`
 const EditUploadInShowCase = `(//*[@name='attachement'])[2]`
-const saveButtonInShowCase = `(//*[contains(text(),'Upload')])[2]`
+// const saveButtonInShowCase = `(//*[contains(text(),'Upload')])[2]`
 const saveInShowCase = () => getLocatorByRole('button', { name: 'Save ' });
 //this code verify view profile
 const verifyDisplayNameInViewProfile = `(//h5//span)[1]`
@@ -270,7 +270,7 @@ export async function verifyViewProfile() {
     const experience = await getText(experienceInViewProfile)
     const experienceMatch = experience.match(/(\d+) Years and (\d+) months/);
     const expectYear = experienceMatch ? experienceMatch[1] : null;
-    const expectMonth = experienceMatch ? experienceMatch[2] : null;
+    // const expectMonth = experienceMatch ? experienceMatch[2] : null;
     const actualYear = await (editNannyProfileDetails.year)
     //  const actualMonth = await(editNannyProfileDetails.month)
     expect(expectYear).toMatch(actualYear)

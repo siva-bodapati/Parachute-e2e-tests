@@ -69,3 +69,10 @@ export const editNannyProfileDetails = {
   docyear: '2003'
 
 }
+
+//Nanny apply Job details data
+export const nannyApplyJobData = {
+  expectedSalary: '5000',
+  workingHours: '28',
+  coverLetter: 'Testing purpose only'
+}

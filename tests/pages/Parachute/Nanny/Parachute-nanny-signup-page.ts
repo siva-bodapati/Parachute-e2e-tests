@@ -235,7 +235,7 @@ export async function nannyProfileStatus(){
     await expectElementToBeVisible(pendingStatus)
 }
 
-export async function logoutNannyprofile(){
+export async function logoutprofile(){
     await hover(profiledropdown)
     await click(logout)
 }
