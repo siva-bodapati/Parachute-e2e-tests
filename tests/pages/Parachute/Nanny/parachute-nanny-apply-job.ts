@@ -1,4 +1,4 @@
-import {  check, click, clickAndNavigate, fill, getText, scrollLocatorIntoView, selectByText, selectByValue, waitForElementToBeVisible } from 'vasu-playwright-utils';
+import {  check, click, clickAndNavigate, fill, getText, selectByText, waitForElementToBeVisible } from 'vasu-playwright-utils';
 import { nannyApplyJobData, parachueNannyLoginCredentials, } from '@testdata/parachute/Nanny/parachute-nanny-test-data';
 import{fillJobDetails} from '@testdata/parachute-test-data'
 import { getLocator, getLocatorByPlaceholder, getLocatorByRole } from 'vasu-playwright-utils';
