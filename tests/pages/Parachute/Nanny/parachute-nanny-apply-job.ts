@@ -24,6 +24,9 @@ const workingDays = `//*[@name='days']`
 const coverLetter = `//*[@class='form-control rounded']`
 const applyButtonInApplyJob = `//div[3]//button[@class='btn btn-orange btn-rounded m-2']`
 const appliedButton = `(//button[contains(text(), 'Applied')])[1]`
+//Verifying applied is showing in m jobs
+const myJobsLink = `//a[contains(text(),'My jobs')]`
+const getJobNameInMyJobs = `(//h6//a[@href = 'javascript:'])[1]`
 
 
 export async function parachutelogInSuccessfully() {
@@ -89,6 +92,16 @@ export async function fillApplyJobDetails(){
 export async function verifyAppliedButton(){
     await new Promise((resolve) => setTimeout(resolve, 3000));
     await expectElementToBeVisible(appliedButton)
+}
+
+export async function clickMyJobsLink(){
+    await click(myJobsLink)
+}
+
+export async function VerifyingAppliedJob(){
+    const expectJobName = await getText(getJobNameInMyJobs)
+    const actualJobName = await (fillJobDetails.jobTitle)
+    expect(expectJobName).toMatch(actualJobName) 
 }
 
 

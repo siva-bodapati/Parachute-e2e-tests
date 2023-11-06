@@ -6,6 +6,7 @@ import * as nannyAvailability from '@pages/Parachute/Nanny/Parachute-nanny-avail
 import * as editProfile from '@pages/Parachute/Nanny/parachute-nanny-edit-profile'
 import * as nannyApplyJob from '@pages/Parachute/Nanny/parachute-nanny-apply-job'
 import * as postAJob from '@pages/Parachute/Parent/parachute-parent-Postjob'
+import * as inactiveJob from '@pages/Parachute/Parent/parachute-parent-Inactivepost'
 
 test.describe.configure({ mode: 'serial' });
 
@@ -113,6 +114,18 @@ test.describe('parachute flow all scenarios', () => {
         await nannyApplyJob.verifyApplyJobText();
         await nannyApplyJob.verifySalaryRequirementtext();
         await nannyApplyJob.fillApplyJobDetails();
+        await nannyApplyJob.verifyAppliedButton();
+        await editProfile.clickDashboardIcon();
+        await nannyApplyJob.clickMyJobsLink();
+        await nannySignup.logoutprofile();
+        await postAJob.ParentlogInSuccessfully();
+        await postAJob.verifyLoginWelcomMessage();
+        await inactiveJob.clickMyPostings();
+        await inactiveJob.verifyJobNameInParent()
+        await inactiveJob.inActiveJob();
+        await inactiveJob.ClickInactiveTab()
+        await inactiveJob.verifyJobNameInInActiveTab()
+        await nannySignup.logoutprofile();
     });
 
 
