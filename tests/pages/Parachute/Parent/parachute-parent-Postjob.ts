@@ -3,12 +3,12 @@ import { ParentCredentials, fillJobDetails } from '@testdata/parachute-test-data
 import { expectElementToBeVisible } from 'vasu-playwright-utils';
 //import { getLocator, getLocatorByPlaceholder, getLocatorByRole } from 'vasu-playwright-utils';
 
-const email = `//*[@name='email']`;
-const password = `//input[@placeholder='Password']`;
-const login = `//button[@type='submit']`;
+//const email = `//*[@name='email']`;
+//const password = `//input[@placeholder='Password']`;
+//const login = `//button[@type='submit']`;
 const findANanny = `//*[@id="navbarSupportedContent"]/ul[1]/li[1]`;
 const postAJob = `//*[@id="navbarSupportedContent"]/ul[1]/li[1]/div/a[2]`;
-const welcomeMessage = `//p[contains(text(),'Welcome to your dashboard! Here you can manage everything')]`;
+//const welcomeMessage = `//p[contains(text(),'Welcome to your dashboard! Here you can manage everything')]`;
 const jobTitle = `//input[@name = 'title']`;
 const nextButton1 = `(//button[contains(text(),'Next')])[1]`;
 
@@ -31,7 +31,16 @@ const budget = `//input[@name='budget']`;
 const nextButton4 = `(//button[contains(text(),'Next')])[4]`;
 const submitJob = `//button[contains(text(),'Submit')]`;
 const jobPostSuccessMessage = `//*[contains(text(),'Great job!')]`;
+const viewJobPosting = `(//button[contains(text(),'View posting')])`;
 
+const jobCard = `//*[@class = 'card']`;
+const expectedJobTitle = fillJobDetails.jobTitle;
+const jobTitleOnJobBoard = `//h6[@class= 'm-0']/a[1]`;
+
+
+
+const viewJobBoard = `//*[@id="navbarSupportedContent"]/ul[1]/li[1]/div/a[3]`;
+/*
 export async function verifyLoginWelcomMessage() {
   await expectElementToBeVisible(welcomeMessage, { timeout: 20000 });
 }
@@ -45,7 +54,7 @@ export async function ParentlogInSuccessfully() {
   await fill(password, ParentCredentials.password);
   await clickAndNavigate(login, { timeout: 5000 });
 }
-
+*/
 export async function ClickOnPostAJob() {
   await click(findANanny);
   await clickAndNavigate(postAJob);
@@ -78,4 +87,23 @@ export async function FillJobDetails() {
 export async function CheckJobPostSuccess() {
   await expectElementToBeVisible(jobPostSuccessMessage);
 
+}
+
+export async function GoToJobs() {
+  await click(viewJobPosting);
+
+}
+
+export async function GoToJobBoard() {
+  await click(findANanny);
+  await click(viewJobBoard);
+
+}
+
+
+export async function VerifyJobInJobBoard() {
+  await expectElementToBeVisible(jobTitleOnJobBoard);
+  const jobTitle1 = Text(jobTitleOnJobBoard)
+
+});
 }
