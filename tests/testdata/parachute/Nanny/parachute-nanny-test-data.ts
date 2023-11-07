@@ -76,3 +76,23 @@ export const nannyApplyJobData = {
   workingHours: '28',
   coverLetter: 'Testing purpose only'
 }
+
+//nannychatCredentials
+export const nannyChatCredentials = {
+  username: 'bodapatisskumar+6963@gmail.com',
+  password: 'S!va1920',
+};
+
+//parent chat credentials
+export const parentChatCredentials = {
+  username: 'bodapatisskumar+rdx@gmail.com',
+  password: 'S!va1920',
+};
+
+export const nannychatMessage = {
+  nannyMessage: 'How are you?'
+}
+
+export const parentchatMessage = {
+  parentMessage: 'I am fine'
+}

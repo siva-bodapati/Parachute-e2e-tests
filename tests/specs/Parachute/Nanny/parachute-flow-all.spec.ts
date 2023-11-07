@@ -7,6 +7,8 @@ import * as editProfile from '@pages/Parachute/Nanny/parachute-nanny-edit-profil
 import * as nannyApplyJob from '@pages/Parachute/Nanny/parachute-nanny-apply-job'
 import * as postAJob from '@pages/Parachute/Parent/parachute-parent-Postjob'
 import * as inactiveJob from '@pages/Parachute/Parent/parachute-parent-Inactivepost'
+import * as nannyChat from '@pages/Parachute/Nanny/parachute-nanny-chat'
+import * as parentChat from '@pages/Parachute/Parent/parachute-parent-chat'
 
 test.describe.configure({ mode: 'serial' });
 
@@ -127,7 +129,32 @@ test.describe('parachute flow all scenarios', () => {
         await inactiveJob.verifyJobNameInInActiveTab()
         await nannySignup.logoutprofile();
     });
-
-
+    test('Parchute tests - chatScenario', async () => {
+        await nannySignup.navigateToParachuteLoginPage();
+        await nannySignup.acceptcookies();
+        await nannySignup.clicklogin(); 
+        await nannyChat.nannyChatlogInSuccessfully();
+        await nannyChat.clickChaticon();
+        await nannyChat.selectChatUser();
+        await nannyChat.fillmessage();
+        await nannyChat.clickSendMessageButton();
+        await nannyChat.verifySendedMessage();
+        await nannyChat.messageStatusSent();
+        await nannySignup.logoutprofile();
+        await parentChat.parentChatlogInSuccessfully();
+        await parentChat.clickChaticon();
+        await parentChat.selectChatUser();
+        await parentChat.parentVerifyNannySendedMessage();
+        await parentChat.fillmessage();
+        await parentChat.clickSendMessageButton();
+        await parentChat.verifySendedMessage();
+        await parentChat.messageStatusSent();
+        await nannySignup.logoutprofile();
+        await nannyChat.nannyChatlogInSuccessfully();
+        await nannyChat.clickChaticon();
+        await nannyChat.selectChatUser();
+        await nannyChat.nannyVerifyParentSendedMessage();
+        await nannySignup.logoutprofile();
+    });
 
 });
