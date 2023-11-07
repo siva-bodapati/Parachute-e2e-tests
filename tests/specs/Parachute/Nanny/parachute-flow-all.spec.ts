@@ -9,6 +9,8 @@ import * as postAJob from '@pages/Parachute/Parent/parachute-parent-Postjob'
 import * as inactiveJob from '@pages/Parachute/Parent/parachute-parent-Inactivepost'
 import * as nannyChat from '@pages/Parachute/Nanny/parachute-nanny-chat'
 import * as parentChat from '@pages/Parachute/Parent/parachute-parent-chat'
+import * as login from '@pages/Parachute/parachute-login-Fullpage'
+import * as Dashboard from '@pages/Parachute/parachute-dashboard-page';
 
 test.describe.configure({ mode: 'serial' });
 
@@ -100,8 +102,8 @@ test.describe('parachute flow all scenarios', () => {
         await nannySignup.navigateToParachuteLoginPage();
         await nannySignup.acceptcookies();
         await nannySignup.clicklogin(); 
-        await postAJob.ParentlogInSuccessfully();
-        await postAJob.verifyLoginWelcomMessage();
+        await login.ParentlogInSuccessfully();
+        await Dashboard.verifyLoginWelcomMessage();
         await postAJob.ClickOnPostAJob();
         await postAJob.FillJobDetails();
         await postAJob.CheckJobPostSuccess();
@@ -120,8 +122,8 @@ test.describe('parachute flow all scenarios', () => {
         await editProfile.clickDashboardIcon();
         await nannyApplyJob.clickMyJobsLink();
         await nannySignup.logoutprofile();
-        await postAJob.ParentlogInSuccessfully();
-        await postAJob.verifyLoginWelcomMessage();
+        await login.ParentlogInSuccessfully();
+        await Dashboard.verifyLoginWelcomMessage();
         await inactiveJob.clickMyPostings();
         await inactiveJob.verifyJobNameInParent()
         await inactiveJob.inActiveJob();

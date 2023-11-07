@@ -103,7 +103,6 @@ export async function GoToJobBoard() {
 
 export async function VerifyJobInJobBoard() {
   await expectElementToBeVisible(jobTitleOnJobBoard);
-  const jobTitle1 = Text(jobTitleOnJobBoard)
+  
 
-});
 }
